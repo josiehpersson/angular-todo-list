@@ -1,7 +1,11 @@
-<input 
-#newTodo 
-class="new-todo"
-type="text" 
-placeholder="Add new todo..."
-(keyup.enter)="addTodo(newTodo.value); newTodo.value=''"
->
+<div class="add-todo-container">
+    <input 
+    #newTodo 
+    class="new-todo"
+    type="text" 
+    placeholder="Add new todo..."
+    (keyup.enter)="addTodo(newTodo.value); newTodo.value=''"
+    >
+    
+    <button type="button" class="new-todo-btn" (click)="addTodo(newTodo.value); newTodo.value=''"><i class="fas fa-plus"></i></button>
+</div>

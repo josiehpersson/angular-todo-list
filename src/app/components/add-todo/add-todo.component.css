@@ -1,0 +1,23 @@
+.add-todo-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-todo {
+    margin: 1rem;
+    width: 15vw;
+    padding: 1em;
+    border-radius: 10px;
+    border: none;
+    font-style: italic;
+}
+
+.new-todo-btn {
+    padding: 1em;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
