@@ -16,6 +16,11 @@ export class AppComponent {
     ]
   };
 
+  strikethrough(e) {
+    e = document.getElementsByClassName('todo-text');
+    e.classList.toggle('.strike');
+  }
+
   addTodo(todo) {
     this.data.todos.push({
       content: todo
