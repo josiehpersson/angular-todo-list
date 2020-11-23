@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppData} from './interfaces';
+import { AppData, Todo} from './interfaces';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import { AppData} from './interfaces';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  data: AppData = {
+  myTodos: AppData = {
     todos: [
       {content: 'Buy groceries'},
       {content: 'Feed the cat'},
@@ -15,22 +15,35 @@ export class AppComponent {
       {content: 'Milk the cows'},
     ]
   };
+  filteredTodos = [     
+    {content: 'Buy groceries'},
+    {content: 'Feed the cat'},
+    {content: 'Fold laundry'},
+    {content: 'Milk the cows'},
+  ];
 
-  strikethrough(e) {
-    e = document.getElementsByClassName('todo-text');
-    e.classList.toggle('.strike');
-  }
 
   addTodo(todo) {
-    this.data.todos.push({
+    this.filteredTodos.push({
       content: todo
     });
   }
+  filter(data: string) {
+    if (data) {
+      this.filteredTodos = this.myTodos.todos.filter((todo: Todo) => {
+        return (
+          todo.content.toLowerCase().indexOf(data.toLowerCase()) > -1
+        );
+      });
+    } else {
+      this.filteredTodos = this.myTodos.todos;
+    }
+  }
 
   deleteItem(todo) {
-    for(let i = 0; i <= this.data.todos.length; i++) {
-      if(todo === this.data.todos[i]) {
-        this.data.todos.splice(i,1)
+    for(let i = 0; i <= this.filteredTodos.length; i++) {
+      if(todo === this.filteredTodos[i]) {
+        this.filteredTodos.splice(i,1)
       }
     }
   }

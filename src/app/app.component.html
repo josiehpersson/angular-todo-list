@@ -1,8 +1,9 @@
 <div class="todo-list-container">
   <h1>DO IT!</h1>
 <div class="todo-list">
-  <div class="todo-item" *ngFor="let todo of data.todos" >
-    <p class="todo-text" (click)="strikethrough(todo-text)">{{todo.content}}</p> <button type="button" class="delete-btn" (click)="deleteItem(todo)"><i class="fas fa-times"></i></button>
+  <app-textfilter (changed)="filter($event)"></app-textfilter>
+  <div class="todo-item" *ngFor="let todo of filteredTodos" >
+    <p class="todo-text">{{todo.content}}</p> <button type="button" class="delete-btn" (click)="deleteItem(todo)"><i class="fas fa-times"></i></button>
   </div>
 
 </div>

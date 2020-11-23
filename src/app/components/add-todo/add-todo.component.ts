@@ -12,7 +12,6 @@ export class AddTodoComponent implements OnInit {
   }
   
   addTodo(todo) {
-    console.log(todo);
     this.addTodoChange.next(todo);
   }
   
